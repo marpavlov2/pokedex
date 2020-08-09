@@ -1,0 +1,21 @@
+<header class="header-container">
+    <div class="header">
+        <a routerLink="/">
+            <img src="../../assets/logo.svg" alt="logo" width="178" height="18">
+        </a>
+    </div>
+</header>
+<nav class="navigation">
+    <div class="container">
+        <div class="navigation-container">
+            <ul class="navigation-items">
+                <li>
+                    <a routerLink="/" [routerLinkActive]="'is-active'">All contacts</a>
+                </li>
+                <li>
+                    <a routerLink="/login" [routerLinkActive]="'is-active'">My favorites</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
