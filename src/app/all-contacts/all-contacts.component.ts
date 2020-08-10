@@ -9,7 +9,7 @@ export class AllContactsComponent implements OnInit {
   contacts: Array<any> = [
     {name: 'Addie Hernande', liked: false},
     {name: 'Oscar Arnold', liked: true},
-    {name: 'Isaiah McGuire', liked: false},
+    {name: 'Isaiah McGuire', liked: true},
     {name: 'Ann Schneider', liked: false},
     {name: 'Agnes Terry', liked: false},
     {name: 'Rose Bush', liked: false},

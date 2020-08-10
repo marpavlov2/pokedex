@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { AllContactsComponent } from './all-contacts/all-contacts.component';
+import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    AllContactsComponent
+    AllContactsComponent,
+    MyFavoritesComponent
   ],
   imports: [
     BrowserModule,

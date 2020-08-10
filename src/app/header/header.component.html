@@ -10,10 +10,10 @@
         <div class="navigation-container">
             <ul class="navigation-items">
                 <li>
-                    <a routerLink="/" [routerLinkActive]="'is-active'">All contacts</a>
+                    <a routerLink="/" [routerLinkActive]="'is-active'" [routerLinkActiveOptions]="{ exact: true }">All contacts</a>
                 </li>
                 <li>
-                    <a routerLink="/login" [routerLinkActive]="'is-active'">My favorites</a>
+                    <a routerLink="/my-favorites" [routerLinkActive]="'is-active'">My favorites</a>
                 </li>
             </ul>
         </div>
