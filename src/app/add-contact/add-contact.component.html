@@ -1,34 +1,27 @@
-<div class="edit-contact-container">
+<div class="add-contact-container">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="edit-navigation mobile">
+                        <div class="add-navigation mobile">
                             <button class="back" (click)="goBack()">
                                 <img src="../../assets/back-icon.svg" alt="Back icon" width="20" height="16">
-                            </button>
-                            <button class="delete" (click)="deleteContact()">
-                                <img src="../../assets/delete-icon.svg" alt="delete icon" width="13" height="17">
                             </button>
                         </div>
                     </div>
                     <div class="col-md-4 col-lg-3 col-xl-3">
-                        <div class="edit-img-container">
-                            <div class="edit-img">
-                                <img src="../../assets/woman.jpg" alt="Woman image">
-                                <div class="remove-img"><span>&#10005;</span></div>
+                        <div class="add-img-container">
+                            <div class="add-img">
+                                <img class="upload-img" src="../../assets/upload-icon.svg" alt="Upload icon" width="21" height="19">
+
                             </div>
                         </div>
                     </div>
                     <div class="col-md-8 col-lg-9 col-xl-9">
-                        <div class="edit-navigation">
+                        <div class="add-navigation">
                             <button class="back" (click)="goBack()">
                                 <img src="../../assets/back-icon.svg" alt="Back icon" width="20" height="16">
-                            </button>
-                            <button class="delete" (click)="deleteContact()">
-                                <span>Delete</span>
-                                <img src="../../assets/delete-icon.svg" alt="delete icon" width="13" height="17">
                             </button>
                         </div>
                         <form (ngSubmit)="register()">
@@ -52,51 +45,6 @@
                                     </div>
                                     <div class="col-9 col-sm-4 col-lg-5">
                                         <input type="email" class="form-control" placeholder="Home"
-                                            formControlName="numbers">
-                                    </div>
-                                    <div class="col-3 col-sm-2 col-lg-1">
-                                        <div class="remove-add-container">
-                                            <div class="icon"><span>&#10005;</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 col-sm-6 col-lg-6">
-                                        <input type="email" class="form-control" placeholder="+385 21 546 456"
-                                            formControlName="numbers">
-                                    </div>
-                                    <div class="col-9 col-sm-4 col-lg-5">
-                                        <input type="email" class="form-control" placeholder="Work"
-                                            formControlName="numbers">
-                                    </div>
-                                    <div class="col-3 col-sm-2 col-lg-1">
-                                        <div class="remove-add-container">
-                                            <div class="icon"><span>&#10005;</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 col-sm-6 col-lg-6">
-                                        <input type="email" class="form-control" placeholder="+385 21 546 456"
-                                            formControlName="numbers">
-                                    </div>
-                                    <div class="col-9 col-sm-4 col-lg-5">
-                                        <input type="email" class="form-control" placeholder="Cell"
-                                            formControlName="numbers">
-                                    </div>
-                                    <div class="col-3 col-sm-2 col-lg-1">
-                                        <div class="remove-add-container">
-                                            <div class="icon"><span>&#10005;</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 col-sm-6 col-lg-6">
-                                        <input type="email" class="form-control" placeholder="+385 21 546 456"
-                                            formControlName="numbers">
-                                    </div>
-                                    <div class="col-9 col-sm-4 col-lg-5">
-                                        <input type="email" class="form-control" placeholder="Husband"
                                             formControlName="numbers">
                                     </div>
                                     <div class="col-3 col-sm-2 col-lg-1">

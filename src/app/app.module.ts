@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { AllContactsComponent } from './all-contacts/all-contacts.component';
 import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
 import { EditContactComponent } from './edit-contact/edit-contact.component';
+import { AddContactComponent } from './add-contact/add-contact.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { EditContactComponent } from './edit-contact/edit-contact.component';
     HeaderComponent,
     AllContactsComponent,
     MyFavoritesComponent,
-    EditContactComponent
+    EditContactComponent,
+    AddContactComponent
   ],
   imports: [
     BrowserModule,

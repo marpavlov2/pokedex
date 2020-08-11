@@ -17,6 +17,12 @@ body {
     box-shadow: none;
 }
 
+button {
+    &:focus {
+        outline: unset!important;
+    }
+}
+
 .btn:hover {
     color: #fff !important;
 }

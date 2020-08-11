@@ -45,6 +45,7 @@
     }
 
     .card-body {
+        cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: flex-start;
@@ -60,7 +61,6 @@
 
         .card-title {
             color: #bbc4c3;
-            font-family: Lato;
             font-size: 14px;
             font-weight: bold;
             line-height: 17px;
@@ -75,6 +75,7 @@
         border: 1px dashed #2da1ad;
         opacity: 0.5;
         border-radius: 4px;
+        outline: 0;
 
         &:hover {
             opacity: 1;
