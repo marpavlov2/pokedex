@@ -8,10 +8,50 @@ body {
     margin: 0;
     font-family: "Lato", sans-serif;
     line-height: unset !important;
+    letter-spacing: 0;
 }
 
 .form-control:focus {
     border-color: inherit;
     -webkit-box-shadow: none;
     box-shadow: none;
-  }
+}
+
+.btn:hover {
+    color: #fff !important;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+
+    .button-primary {
+        opacity: 0.9;
+        border-radius: 28.5px;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 17px;
+        text-align: center;
+        padding: 12px 48px;
+        &.gray {
+            background-color: #bbc4c3;
+        }
+        &.blue {
+            background-color: #2da1ad;
+        }
+
+        &:hover {
+            opacity: 1;
+            columns: #fff;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .form-actions {
+        .button-primary {
+            padding: 12px 65px;
+        }
+    }
+}

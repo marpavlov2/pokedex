@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { AllContactsComponent } from './all-contacts/all-contacts.component';
 import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
+import { EditContactComponent } from './edit-contact/edit-contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     AllContactsComponent,
-    MyFavoritesComponent
+    MyFavoritesComponent,
+    EditContactComponent
   ],
   imports: [
     BrowserModule,

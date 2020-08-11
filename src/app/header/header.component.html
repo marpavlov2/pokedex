@@ -5,24 +5,26 @@
         </a>
     </div>
 </header>
-<nav class="navigation">
-    <div class="container">
-        <div class="navigation-container">
-            <ul class="navigation-items">
-                <li>
-                    <a routerLink="/" [routerLinkActive]="'is-active'" [routerLinkActiveOptions]="{ exact: true }">All contacts</a>
-                </li>
-                <li>
-                    <a routerLink="/my-favorites" [routerLinkActive]="'is-active'">My favorites</a>
-                </li>
-            </ul>
+<div *ngIf="router.url === '/' || router.url === '/my-favorites'">
+    <nav class="navigation">
+        <div class="container">
+            <div class="navigation-container">
+                <ul class="navigation-items">
+                    <li>
+                        <a routerLink="/" [routerLinkActive]="'is-active'" [routerLinkActiveOptions]="{ exact: true }">All contacts</a>
+                    </li>
+                    <li>
+                        <a routerLink="/my-favorites" [routerLinkActive]="'is-active'">My favorites</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
-<div class="search-container">
-    <div class="container">
-        <div class="search">
-                <input class="search-input form-control" type="text">
+    </nav>
+    <div class="search-container">
+        <div class="container">
+            <div class="search">
+                    <input class="search-input form-control" type="text">
+            </div>
         </div>
     </div>
 </div>
