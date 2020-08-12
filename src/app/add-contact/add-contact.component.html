@@ -24,7 +24,7 @@
                                 <img src="../../assets/back-icon.svg" alt="Back icon" width="20" height="16">
                             </button>
                         </div>
-                        <form (ngSubmit)="register()">
+                        <form [formGroup]="editEmployeeForm" (ngSubmit)="register()">
                             <div class="form-group">
                                 <label class="person" for="fullName">full name</label>
                                 <input type="text" class="form-control" placeholder="Full name"

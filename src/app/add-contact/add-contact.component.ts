@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common'
+import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-add-contact',
@@ -7,10 +8,22 @@ import { Location } from '@angular/common'
   styleUrls: ['./add-contact.component.scss']
 })
 export class AddContactComponent implements OnInit {
+  get fullName() { return this.editEmployeeForm.get('fullName'); }
+  get email() { return this.editEmployeeForm.get('email'); }
+  get numbers() { return this.editEmployeeForm.get('numbers'); }
 
-  constructor(private _location: Location) { }
+  editEmployeeForm: FormGroup;
+
+  constructor(
+    private _location: Location,
+    private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.editEmployeeForm = this.fb.group({
+      fullName: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+      numbers: ['', [Validators.required]],
+    });
   }
 
   goBack() {

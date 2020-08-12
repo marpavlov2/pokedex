@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SearchContactService } from '../search-contact.service';
 
 @Component({
   selector: 'app-all-contacts',
@@ -8,26 +9,32 @@ import { Router } from '@angular/router';
 })
 export class AllContactsComponent implements OnInit {
   contacts: Array<any> = [
-    {name: 'Addie Hernande', liked: false},
-    {name: 'Oscar Arnold', liked: true},
-    {name: 'Isaiah McGuire', liked: true},
-    {name: 'Ann Schneider', liked: false},
-    {name: 'Agnes Terry', liked: false},
-    {name: 'Rose Bush', liked: false},
-    {name: 'Duane Reese', liked: true},
-    {name: 'Mae Changled', liked: false},
-    {name: 'Evelyn Weaver', liked: true},
-    {name: 'Catherine Moore', liked: true},
-    {name: 'Sam Manning', liked: false},
+    { name: 'Addie Hernande', liked: false },
+    { name: 'Oscar Arnold', liked: true },
+    { name: 'Isaiah McGuire', liked: true },
+    { name: 'Ann Schneider', liked: false },
+    { name: 'Agnes Terry', liked: false },
+    { name: 'Rose Bush', liked: false },
+    { name: 'Duane Reese', liked: true },
+    { name: 'Mae Changled', liked: false },
+    { name: 'Evelyn Weaver', liked: true },
+    { name: 'Catherine Moore', liked: true },
+    { name: 'Sam Manning', liked: false },
   ]
 
-  constructor(public router: Router) { }
+  constructor(
+    public router: Router,
+    private _searchContact: SearchContactService) { }
 
   ngOnInit() {
   }
 
   goToContactDetails() {
     this.router.navigate(['/contact-details']);
+  }
+
+  ngOnDestroy() {
+    this._searchContact.searchTerm = undefined;
   }
 
 }
