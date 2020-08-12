@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SearchContactService } from '../search-contact.service';
+import { ContactsService } from '../contacts.service';
 
 @Component({
   selector: 'app-my-favorites',
@@ -18,7 +18,7 @@ export class MyFavoritesComponent implements OnInit {
 
   constructor(
     public router: Router,
-    public searchContact: SearchContactService) { }
+    public contactService: ContactsService) { }
 
   ngOnInit() {
   }
@@ -28,7 +28,7 @@ export class MyFavoritesComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.searchContact.searchTerm = undefined;
+    this.contactService.searchTerm = undefined;
   }
 
 }

@@ -7,11 +7,13 @@ import { AngularFirestore } from '@angular/fire/firestore';
   providedIn: 'root'
 })
 export class ContactsService {
+  searchTerm: string;
 
   constructor(
     private firestore: AngularFirestore,
     public spinner: SpinnerService,
-    private toast: ToastrService) {}  
+    private toast: ToastrService
+    ) {}  
 
     async getPromotedProducers(): Promise<any> {
       return this.firestore.collection(`contacts`).get().toPromise()

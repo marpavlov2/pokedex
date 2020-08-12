@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common'
-import { SearchContactService } from '../search-contact.service';
+import { ContactsService } from '../contacts.service';
 
 @Component({
   selector: 'app-contact-details',
@@ -13,8 +13,7 @@ export class ContactDetailsComponent implements OnInit {
 
   constructor(
     public router: Router, 
-    private _location: Location,
-    public searchContact: SearchContactService) { }
+    private _location: Location) { }
 
   ngOnInit() {
   }
