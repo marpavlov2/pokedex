@@ -17,4 +17,6 @@ export class AddContactComponent implements OnInit {
     this._location.back();
   }
 
+  register() {}
+
 }

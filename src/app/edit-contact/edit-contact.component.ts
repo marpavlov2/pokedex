@@ -19,4 +19,6 @@ export class EditContactComponent implements OnInit {
     this._location.back();
   }
 
+  register() {}
+
 }

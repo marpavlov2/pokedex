@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-contact-details',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class ContactDetailsComponent implements OnInit {
   contact: any = {liked: true}
 
-  constructor(public router: Router) { }
+  constructor(public router: Router, private _location: Location) { }
 
   ngOnInit() {
   }
@@ -18,6 +19,10 @@ export class ContactDetailsComponent implements OnInit {
 
   goToEditContact() {
     this.router.navigate(['/edit-contact']);
+  }
+
+  goBack() {
+    this._location.back();
   }
 
 }
