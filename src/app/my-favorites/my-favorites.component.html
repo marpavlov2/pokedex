@@ -1,7 +1,7 @@
 <div class="my-favorites-container">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-lg-4 col-xl-3" *ngFor="let contact of contacts">
+            <div class="col-sm-6 col-lg-4 col-xl-3" *ngFor="let contact of contacts; let i = index" (click)="goToContactDetails()">
                 <div class="card">
                     <div class="card-actions">
                         <button class="like">

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-favorites',
@@ -14,9 +15,13 @@ export class MyFavoritesComponent implements OnInit {
     {name: 'Catherine Moore', liked: true},
   ]
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
+  }
+
+  goToContactDetails() {
+    this.router.navigate(['/contact-details']);
   }
 
 }

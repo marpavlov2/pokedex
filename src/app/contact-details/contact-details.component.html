@@ -1,0 +1,78 @@
+<div class="contact-details-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="edit-navigation mobile">
+                            <button class="back" (click)="goBack()">
+                                <img src="../../assets/back-icon.svg" alt="Back icon" width="20" height="16">
+                            </button>
+                            <button class="like" (click)="addContactToFavorites()">
+                                <div class="heart-icon" [class.liked]="contact.liked"></div>
+                            </button>
+                            <button class="edit" (click)="goToEditContact()">
+                                <img src="../../assets/edit-icon.svg" alt="Edit icon" width="16" height="16">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-3 col-xl-3">
+                        <div class="contact-header-container">
+                            <div class="img-container">
+                                <div class="img">
+                                    <img src="../../assets/woman.jpg" alt="Woman image">
+                                </div>
+                            </div>
+                            <h3 class="contact-name">Addie Hernandez</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-lg-9 col-xl-9">
+                        <div class="edit-navigation">
+                            <div class="contact-name-container">
+                                <button class="back" (click)="goBack()">
+                                    <img src="../../assets/back-icon.svg" alt="Back icon" width="21" height="16">
+                                </button>
+                                <h3 class="contact-name">Addie Hernandez</h3>
+                            </div>
+                            <div class="actions-container">
+                                <button class="like" (click)="addContactToFavorites()">
+                                    <div class="heart-icon" [class.liked]="contact.liked"></div>
+                                </button>
+                                <button class="edit" (click)="goToEditContact()">
+                                    <img src="../../assets/edit-icon.svg" alt="Edit icon" width="16" height="16">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="contact-details">
+                            <div class="email-container">
+                                <label class="email-label">email</label>
+                                <h5 class="email">addie.hernandez@gmail.com</h5>
+                            </div>
+                            <div class="numbers-container">
+                                <label class="numbers-label">numbers</label>
+                                <div class="contacts-container">
+                                    <div class="contact">
+                                        <h5>HOME</h5>
+                                        <a href="tel:+38521546456">+385 21 546 456</a>
+                                    </div>
+                                    <div class="contact">
+                                        <h5>WORK</h5>
+                                        <a href="tel:+38521147258"> +385 21 147 258</a>
+                                    </div>
+                                    <div class="contact">
+                                        <h5>CELL</h5>
+                                        <a href="tel:+38521147258">+385 21 147 258</a>
+                                    </div>
+                                    <div class="contact">
+                                        <h5>HUSBAND</h5>
+                                        <a href="tel:+385991456214">+385 99 1456 214</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

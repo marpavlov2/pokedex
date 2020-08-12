@@ -16,18 +16,6 @@
         align-items: center;
         padding-left: 10px;
         line-height: unset;
-        .heart-icon {
-            background-color: #bbc4c3;
-            -webkit-mask: url("../../assets/heart-icon.svg") no-repeat center;
-            mask: url("../../assets/heart-icon.svg") no-repeat center;
-            height: 14px;
-            width: 15px;
-
-            &.liked, &:hover{
-                -webkit-mask: url("../../assets/heart-icon-fill.svg") no-repeat center;
-                mask: url("../../assets/heart-icon-fill.svg") no-repeat center;
-            }
-        }
 
         button {
             position: relative;

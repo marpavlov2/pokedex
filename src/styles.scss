@@ -6,7 +6,7 @@ body {
 }
 body {
     margin: 0;
-    font-family: "Lato", sans-serif;
+    font-family: "Lato" !important;
     line-height: unset !important;
     letter-spacing: 0;
 }
@@ -51,6 +51,20 @@ button {
             opacity: 1;
             columns: #fff;
         }
+    }
+}
+
+
+.heart-icon {
+    background-color: #bbc4c3;
+    -webkit-mask: url("./assets/heart-icon.svg") no-repeat center;
+    mask: url("./assets/heart-icon.svg") no-repeat center;
+    height: 14px;
+    width: 15px;
+
+    &.liked, &:hover{
+        -webkit-mask: url("./assets/heart-icon-fill.svg") no-repeat center;
+        mask: url("./assets/heart-icon-fill.svg") no-repeat center;
     }
 }
 

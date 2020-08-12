@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-contacts',
@@ -20,9 +21,13 @@ export class AllContactsComponent implements OnInit {
     {name: 'Sam Manning', liked: false},
   ]
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
+  }
+
+  goToContactDetails() {
+    this.router.navigate(['/contact-details']);
   }
 
 }
