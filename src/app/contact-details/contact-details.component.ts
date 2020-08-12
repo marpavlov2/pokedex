@@ -14,7 +14,7 @@ export class ContactDetailsComponent implements OnInit {
   constructor(
     public router: Router, 
     private _location: Location,
-    private _searchContact: SearchContactService) { }
+    public searchContact: SearchContactService) { }
 
   ngOnInit() {
   }

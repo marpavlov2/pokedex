@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     public router: Router,
-    private _searchContact: SearchContactService) { }
+    public searchContact: SearchContactService) { }
 
   ngOnInit() {
   }

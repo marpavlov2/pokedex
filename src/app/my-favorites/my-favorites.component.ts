@@ -18,7 +18,7 @@ export class MyFavoritesComponent implements OnInit {
 
   constructor(
     public router: Router,
-    private _searchContact: SearchContactService) { }
+    public searchContact: SearchContactService) { }
 
   ngOnInit() {
   }
@@ -28,7 +28,7 @@ export class MyFavoritesComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this._searchContact.searchTerm = undefined;
+    this.searchContact.searchTerm = undefined;
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SearchContactService } from '../search-contact.service';
+import { ContactsService } from '../contacts.service';
 
 @Component({
   selector: 'app-all-contacts',
@@ -24,9 +25,11 @@ export class AllContactsComponent implements OnInit {
 
   constructor(
     public router: Router,
-    private _searchContact: SearchContactService) { }
+    public contactsService: ContactsService,
+    public searchContact: SearchContactService) { }
 
   ngOnInit() {
+    this.contactsService.getPromotedProducers();
   }
 
   goToContactDetails() {
@@ -34,7 +37,7 @@ export class AllContactsComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this._searchContact.searchTerm = undefined;
+    this.searchContact.searchTerm = undefined;
   }
 
 }
