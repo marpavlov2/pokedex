@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, Params } from '@angular/router';
 import { Location } from '@angular/common'
 import { ContactsService } from '../contacts.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-contact-details',
@@ -13,9 +14,13 @@ export class ContactDetailsComponent implements OnInit {
 
   constructor(
     public router: Router, 
+    public activatedRoute: ActivatedRoute,
+    public contactsService: ContactsService,
     private _location: Location) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    let contactId = this.activatedRoute.snapshot.paramMap.get('contactId');
+    this.contactsService.contactDetails = await this.contactsService.getContact(contactId);
   }
 
   addContactToFavorites() {}

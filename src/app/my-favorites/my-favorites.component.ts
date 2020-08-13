@@ -8,27 +8,22 @@ import { ContactsService } from '../contacts.service';
   styleUrls: ['./my-favorites.component.scss']
 })
 export class MyFavoritesComponent implements OnInit {
-  contacts: Array<any> = [
-    { name: 'Oscar Arnold', liked: true },
-    { name: 'Isaiah McGuire', liked: true },
-    { name: 'Duane Reese', liked: true },
-    { name: 'Evelyn Weaver', liked: true },
-    { name: 'Catherine Moore', liked: true },
-  ]
 
   constructor(
     public router: Router,
-    public contactService: ContactsService) { }
+    public contactsService: ContactsService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.contactsService.favoriteContacts = await this.contactsService.getFavoriteContacts();
   }
 
-  goToContactDetails() {
-    this.router.navigate(['/contact-details']);
+  goToContactDetails(contactId: string) {
+    this.router.navigate([`/contact-details/${contactId}`]);
   }
 
   ngOnDestroy() {
-    this.contactService.searchTerm = undefined;
+    this.contactsService.favoriteContacts = [];
+    this.contactsService.searchTerm = undefined;
   }
 
 }

@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'my-favorites', component: MyFavoritesComponent},
   { path: 'edit-contact', component: EditContactComponent},
   { path: 'add-contact', component: AddContactComponent},
-  { path: 'contact-details', component: ContactDetailsComponent}
+  { path: 'contact-details/:contactId', component: ContactDetailsComponent}
 ];
 
 @NgModule({

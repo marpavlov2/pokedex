@@ -9,10 +9,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-4 col-xl-3" *ngFor="let contact of contacts | searchContact:contactsService.searchTerm; let i = index" (click)="goToContactDetails()">
+            <div class="col-sm-6 col-lg-4 col-xl-3"
+                *ngFor="let contact of contactsService.contacts | searchContact:contactsService.searchTerm; let i = index">
                 <div class="card">
                     <div class="card-actions">
-                        <button class="like">
+                        <button class="like" (click)="addContactToFavorites(contact)">
                             <div class="heart-icon" [class.liked]="contact.liked"></div>
                         </button>
                         <button class="edit" routerLink="/edit-contact">
@@ -22,9 +23,10 @@
                             <img src="../../assets/delete-icon.svg" alt="Delete icon" width="13" height="17">
                         </button>
                     </div>
-                    <div class="card-body">
-                        <img class="card-img" src="../../assets/logo.svg" alt="Card image">
-                        <h5 class="card-title">{{contact.name}}</h5>
+                    <div class="card-body" (click)="goToContactDetails(contact.id)">
+                        <div class="card-img" [style.background]="'url(' + contact.image + ')'" alt="Contact image">
+                        </div>
+                        <h5 class="card-title">{{contact.fullName}}</h5>
                     </div>
                 </div>
             </div>

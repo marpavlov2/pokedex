@@ -8,30 +8,22 @@ import { ContactsService } from '../contacts.service';
   styleUrls: ['./all-contacts.component.scss']
 })
 export class AllContactsComponent implements OnInit {
-  contacts: Array<any> = [
-    { name: 'Addie Hernande', liked: false },
-    { name: 'Oscar Arnold', liked: true },
-    { name: 'Isaiah McGuire', liked: true },
-    { name: 'Ann Schneider', liked: false },
-    { name: 'Agnes Terry', liked: false },
-    { name: 'Rose Bush', liked: false },
-    { name: 'Duane Reese', liked: true },
-    { name: 'Mae Changled', liked: false },
-    { name: 'Evelyn Weaver', liked: true },
-    { name: 'Catherine Moore', liked: true },
-    { name: 'Sam Manning', liked: false },
-  ]
 
   constructor(
     public router: Router,
     public contactsService: ContactsService) { }
 
-  ngOnInit() {
-    this.contactsService.getPromotedProducers();
+  async ngOnInit() {
+    this.contactsService.contacts = await this.contactsService.getContacts();
   }
 
-  goToContactDetails() {
-    this.router.navigate(['/contact-details']);
+  goToContactDetails(contactId: string) {
+    this.router.navigate([`/contact-details/${contactId}`]);
+  }
+
+  addContactToFavorites(contact: any) {
+    contact.liked = !contact.liked;
+    this.contactsService.addContactToFavorites(contact);
   }
 
   ngOnDestroy() {

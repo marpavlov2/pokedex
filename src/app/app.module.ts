@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from 'src/environments/environment';
 import { NgxSpinnerModule } from "ngx-spinner";
 
@@ -42,6 +43,7 @@ import { ToastrModule } from 'ngx-toastr';
     AngularFireStorageModule,
     AngularFirestoreModule,
     NgxSpinnerModule,
+    BrowserAnimationsModule,
     ToastrModule.forRoot(), // ToastrModule added
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

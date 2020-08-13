@@ -9,7 +9,7 @@ export class SearchContactPipe implements PipeTransform {
     if (!searchTerm || !contacts) return contacts;
 
     return contacts.filter(contact =>
-      contact.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
+      contact.fullName.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
     );
   }
 

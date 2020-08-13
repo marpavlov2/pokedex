@@ -11,6 +11,10 @@ body {
     letter-spacing: 0;
 }
 
+.loading {
+    color: #fff;
+}
+
 .form-control:focus {
     border-color: inherit;
     -webkit-box-shadow: none;
@@ -18,8 +22,10 @@ body {
 }
 
 button {
+    cursor: pointer;
+    border: none;
     &:focus {
-        outline: unset!important;
+        outline: unset !important;
     }
 }
 
@@ -27,12 +33,16 @@ button {
     color: #fff !important;
 }
 
+button:disabled,
+button[disabled] {
+    opacity: 0.5!important;
+}
+
 .form-actions {
     display: flex;
     justify-content: space-between;
 
     .button-primary {
-        opacity: 0.9;
         border-radius: 28.5px;
         color: #ffffff;
         font-size: 14px;
@@ -46,14 +56,8 @@ button {
         &.blue {
             background-color: #2da1ad;
         }
-
-        &:hover {
-            opacity: 1;
-            columns: #fff;
-        }
     }
 }
-
 
 .heart-icon {
     background-color: #bbc4c3;
@@ -62,7 +66,8 @@ button {
     height: 14px;
     width: 15px;
 
-    &.liked, &:hover{
+    &.liked,
+    &:hover {
         -webkit-mask: url("./assets/heart-icon-fill.svg") no-repeat center;
         mask: url("./assets/heart-icon-fill.svg") no-repeat center;
     }
