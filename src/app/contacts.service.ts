@@ -23,13 +23,14 @@ export class ContactsService {
 
   // GET USER
   async getContact(contactId: string) {
-    this.spinner.showSpinner();
-    return this.firestore.collection(`contacts`).doc(contactId).get().toPromise().then((doc) => {
-      let user = doc.data();
-      return user;
-    })
-      .finally(() => {
-        this.spinner.hideSpinner();
+    return this.firestore.collection(`contacts`).doc(contactId).get().toPromise()
+      .then((doc) => {
+        let user = doc.data();
+        return user;
+      })
+      .catch(() => {
+        this.toast.show(`Adding contact error`);
+        return false;
       });
   }
 
@@ -50,17 +51,30 @@ export class ContactsService {
       });
   }
 
-  // Update PROFILE
   async addContactToFavorites(contact: any) {
     return this.firestore.collection(`contacts`).doc(contact.id).update({
       liked: contact.liked,
-    }
-    ).then(() => {
-      this.toast.show(`Contact updated`);
-      return true;
     })
+      .then(() => {
+        this.toast.show(`Added to favorites`);
+        return true;
+      })
       .catch(() => {
-        this.toast.show(`Updating contact error`);
+        this.toast.show(`Add to favorites error`);
+        return false;
+      });
+  }
+
+  async removeContactFromFavorites(contact: any) {
+    return this.firestore.collection(`contacts`).doc(contact.id).update({
+      liked: contact.liked,
+    })
+      .then(() => {
+        this.toast.show(`Removed from favorites`);
+        return true;
+      })
+      .catch(() => {
+        this.toast.show(`Remove from favorites error`);
         return false;
       });
   }

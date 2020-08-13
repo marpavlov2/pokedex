@@ -47,7 +47,7 @@
                             <div formArrayName="numbers" class="form-group">
                                 <label class="numbers" for="numbers">numbers</label>
                                 <div class="row"
-                                    *ngFor="let contact of contactForm.get('numbers').controls; let i = index"
+                                    *ngFor="let contact of contactForm.get('numbers')['controls']; let i = index"
                                     [formGroupName]="i">
                                     <div class="col-12 col-sm-6 col-lg-6">
                                         <input type="tel" class="form-control" placeholder="Number"

@@ -21,9 +21,13 @@ export class AllContactsComponent implements OnInit {
     this.router.navigate([`/contact-details/${contactId}`]);
   }
 
-  addContactToFavorites(contact: any) {
+  markFavorite(contact: any) {
     contact.liked = !contact.liked;
-    this.contactsService.addContactToFavorites(contact);
+    if (contact.liked) {
+      this.contactsService.addContactToFavorites(contact);
+    } else {
+      this.contactsService.removeContactFromFavorites(contact);
+    }
   }
 
   ngOnDestroy() {

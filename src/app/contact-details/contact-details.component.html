@@ -1,6 +1,6 @@
 <div class="contact-details-container">
     <div class="container">
-        <div class="row">
+        <div class="row" *ngIf="contactsService.contactDetails">
             <div class="col-sm-12">
                 <div class="row">
                     <div class="col-sm-12">
@@ -19,11 +19,9 @@
                     <div class="col-md-4 col-lg-3 col-xl-3">
                         <div class="contact-header-container">
                             <div class="img-container">
-                                <div class="img">
-                                    <img src="../../assets/woman.jpg" alt="Woman image">
-                                </div>
+                                <div class="img" [style.background]="'url(' + contactsService.contactDetails.image + ')'"></div>
                             </div>
-                            <h3 class="contact-name" *ngIf="contactsService.contactDetails">{{contactsService.contactDetails.fullName}}</h3>
+                            <h3 class="contact-name">{{contactsService.contactDetails.fullName}}</h3>
                         </div>
                     </div>
                     <div class="col-md-8 col-lg-9 col-xl-9">
@@ -32,7 +30,7 @@
                                 <button class="back" (click)="goBack()">
                                     <img src="../../assets/back-icon.svg" alt="Back icon" width="21" height="16">
                                 </button>
-                                <h3 class="contact-name" *ngIf="contactsService.contactDetails">{{contactsService.contactDetails.fullName}}</h3>
+                                <h3 class="contact-name">{{contactsService.contactDetails.fullName}}</h3>
                             </div>
                             <div class="actions-container">
                                 <button class="like" (click)="addContactToFavorites()">
@@ -46,11 +44,11 @@
                         <div class="contact-details">
                             <div class="email-container">
                                 <label class="email-label">email</label>
-                                <h5 class="email" *ngIf="contactsService.contactDetails">{{contactsService.contactDetails.email}}</h5>
+                                <h5 class="email">{{contactsService.contactDetails.email}}</h5>
                             </div>
                             <div class="numbers-container">
                                 <label class="numbers-label">numbers</label>
-                                <div class="contacts-container" *ngIf="contactsService.contactDetails">
+                                <div class="contacts-container">
                                     <div class="contact" *ngFor="let contact of contactsService.contactDetails.numbers">
                                         <h5>{{contact.cell}}</h5>
                                         <a href="tel:+38521546456">+385 21 546 456</a>

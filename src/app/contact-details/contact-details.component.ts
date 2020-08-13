@@ -33,4 +33,8 @@ export class ContactDetailsComponent implements OnInit {
     this._location.back();
   }
 
+  ngOnDestroy() {
+    this.contactsService.contactDetails = undefined;
+  }
+
 }

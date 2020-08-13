@@ -13,7 +13,7 @@
                 *ngFor="let contact of contactsService.contacts | searchContact:contactsService.searchTerm; let i = index">
                 <div class="card">
                     <div class="card-actions">
-                        <button class="like" (click)="addContactToFavorites(contact)">
+                        <button class="like" (click)="markFavorite(contact)">
                             <div class="heart-icon" [class.liked]="contact.liked"></div>
                         </button>
                         <button class="edit" routerLink="/edit-contact">
