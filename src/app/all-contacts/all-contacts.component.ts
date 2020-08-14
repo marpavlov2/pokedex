@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContactsService } from '../contacts.service';
 import { Contact } from '../interfaces/contact';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { DeleteContactModalComponent } from '../modals/delete-contact-modal/delete-contact-modal.component';
 
 @Component({
   selector: 'app-all-contacts',
@@ -10,8 +12,10 @@ import { Contact } from '../interfaces/contact';
 })
 export class AllContactsComponent implements OnInit {
   contacts: Array<Contact> = [];
+  modalRef: BsModalRef;
 
   constructor(
+    private _modalService: BsModalService,
     public router: Router,
     public contactsService: ContactsService) { }
 
@@ -30,6 +34,18 @@ export class AllContactsComponent implements OnInit {
     } else {
       this.contactsService.removeContactFromFavorites(contact);
     }
+  }
+
+  deleteContact(contactId: string) {
+    this.modalRef = this._modalService.show(DeleteContactModalComponent, {  class: 'modal-dialog-centered' });
+    this.modalRef.content.onClose.subscribe((result: boolean) => {
+      if (result) {
+        this.contactsService.deleteContact(contactId)
+        .then(() => {
+          this.contacts = this.contacts.filter(contact => contact.id != contactId);
+        });
+      }
+    })
   }
 
   ngOnDestroy() {

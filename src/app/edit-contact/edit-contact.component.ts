@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common'
 import { FormGroup, FormBuilder, Validators, FormControl, FormArray } from '@angular/forms';
 import { ContactsService } from '../contacts.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Contact } from '../interfaces/contact';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { DeleteContactModalComponent } from '../modals/delete-contact-modal/delete-contact-modal.component';
 
 @Component({
   selector: 'app-edit-contact',
@@ -19,13 +21,16 @@ export class EditContactComponent implements OnInit {
 
   editContactForm: FormGroup;
   contact: Contact;
+  modalRef: BsModalRef;
   imgSrc: string = '/assets/img-placeholder.jpg';
   newImage: any = undefined;
   selectedImage: any = null;
 
   constructor(
+    private _modalService: BsModalService,
     private _location: Location,
     private fb: FormBuilder,
+    public router: Router,
     public activatedRoute: ActivatedRoute,
     public contactsService: ContactsService) { }
 
@@ -107,12 +112,21 @@ export class EditContactComponent implements OnInit {
     }
   }
 
-  deleteContact() { }
+  deleteContact() {
+    this.modalRef = this._modalService.show(DeleteContactModalComponent, { class: 'modal-dialog-centered' });
+    this.modalRef.content.onClose.subscribe((result: boolean) => {
+      if (result) {
+        this.contactsService.deleteContact(this.contact.id)
+          .then(() => {
+            this.router.navigate(['/']);
+          });
+
+      }
+    })
+  }
 
   goBack() {
     this._location.back();
   }
-
-  register() { }
 
 }

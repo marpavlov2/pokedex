@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
-html,
+h tml,
 body {
     height: 100%;
 }
@@ -11,15 +10,12 @@ body {
     letter-spacing: 0;
 }
 
+// ngx spinner
 .loading {
     color: #fff;
 }
 
-.form-control:focus {
-    border-color: inherit;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
+// forms, buttons and modal styles
 
 button {
     cursor: pointer;
@@ -35,10 +31,11 @@ button {
 
 button:disabled,
 button[disabled] {
-    opacity: 0.5!important;
+    opacity: 0.5 !important;
 }
 
-.form-actions {
+.form-actions,
+.modal-footer {
     display: flex;
     justify-content: space-between;
 
@@ -59,6 +56,47 @@ button[disabled] {
     }
 }
 
+input {
+    caret-color: #2da1ad;
+}
+
+.form-control:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.modal-content {
+    max-width: 480px;
+}
+
+.modal-title {
+    color: #bbc4c3;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 19px;
+}
+
+.modal-body {
+    text-align: center;
+    color: #bbc4c3;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 28px;
+    text-align: center;
+    padding: 30px 10px 40px !important;
+}
+
+.modal-footer {
+    justify-content: space-between !important;
+    flex-direction: column;
+    border: none !important;
+
+    button {
+        margin-bottom: 15px;
+    }
+}
+
 .heart-icon {
     background-color: #bbc4c3;
     -webkit-mask: url("./assets/heart-icon.svg") no-repeat center;
@@ -73,9 +111,18 @@ button[disabled] {
 }
 
 @media (min-width: 768px) {
-    .form-actions {
+    .form-actions,
+    .modal-footer {
         .button-primary {
-            padding: 12px 65px;
+            padding: 12px 58px;
+        }
+    }
+
+    .modal-footer {
+        flex-direction: row;
+        padding-bottom: 30px !important;
+        button {
+            margin-bottom: unset;
         }
     }
 }

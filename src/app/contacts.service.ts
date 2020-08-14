@@ -67,6 +67,18 @@ export class ContactsService {
       })
   }
 
+  async deleteContact(contactId: string) {
+    return this.firestore.collection(`contacts`).doc(contactId).delete()
+      .then(() => {
+        this.toast.show(`Contact deleted`);
+        return true;
+      })
+      .catch(() => {
+        this.toast.show(`Deleting contact error`);
+        return false;
+      })
+  }
+
   async addContactToFavorites(contact: Contact) {
     return this.firestore.collection(`contacts`).doc(contact.id).update({
       liked: contact.liked

@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from 'src/environments/environment';
 import { NgxSpinnerModule } from "ngx-spinner";
+import {  ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +13,8 @@ import { AllContactsComponent } from './all-contacts/all-contacts.component';
 import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
 import { EditContactComponent } from './edit-contact/edit-contact.component';
 import { AddContactComponent } from './add-contact/add-contact.component';
-import { ContactDetailsComponent } from './contact-details/contact-details.component';
+import { ContactDetailsComponent } from './contact-details/contact-details.component'
+;import { DeleteContactModalComponent } from './modals/delete-contact-modal/delete-contact-modal.component';
 
 import { SearchContactPipe } from './search-contact.pipe';
 // Firebase
@@ -20,8 +22,6 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { ToastrModule } from 'ngx-toastr';
-
-
 
 @NgModule({
   declarations: [
@@ -32,6 +32,7 @@ import { ToastrModule } from 'ngx-toastr';
     EditContactComponent,
     AddContactComponent,
     ContactDetailsComponent,
+    DeleteContactModalComponent,
     SearchContactPipe
   ],
   imports: [
@@ -45,9 +46,11 @@ import { ToastrModule } from 'ngx-toastr';
     NgxSpinnerModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(), // ToastrModule added
+    ModalModule.forRoot()
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DeleteContactModalComponent]
 })
 export class AppModule { }
