@@ -11,8 +11,6 @@ import { Contact } from './interfaces/contact';
 })
 export class ContactsService {
   searchTerm: string;
-  contacts: Array<any> = [];
-  favoriteContacts: Array<any> = [];
 
   constructor(
     private firestore: AngularFirestore,

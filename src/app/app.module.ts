@@ -22,6 +22,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { ToastrModule } from 'ngx-toastr';
+import { ContactCardComponent } from './contact-card/contact-card.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ToastrModule } from 'ngx-toastr';
     AddContactComponent,
     ContactDetailsComponent,
     DeleteContactModalComponent,
-    SearchContactPipe
+    SearchContactPipe,
+    ContactCardComponent
   ],
   imports: [
     BrowserModule,

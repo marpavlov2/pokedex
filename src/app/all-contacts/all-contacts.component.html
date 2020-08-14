@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-lg-4 col-xl-3">
-                <div class="card add-new" routerLink="/add-contact">
+                <div class="add-new" routerLink="/add-contact">
                     <div class="card-body">
                         <img src="../../assets/plus-icon.svg" alt="Plus icon" width="18" height="18">
                         <h5 class="card-title">Add new</h5>
@@ -11,24 +11,7 @@
             </div>
             <div class="col-sm-6 col-lg-4 col-xl-3"
                 *ngFor="let contact of contacts | searchContact:contactsService.searchTerm; let i = index">
-                <div class="card">
-                    <div class="card-actions">
-                        <button class="like" (click)="markFavorite(contact)">
-                            <div class="heart-icon" [class.liked]="contact.liked"></div>
-                        </button>
-                        <button class="edit" [routerLink]="'/edit-contact/' + contact.id">
-                            <img src="../../assets/edit-icon.svg" alt="Edit icon" width="16" height="16">
-                        </button>
-                        <button class="delete" (click)="deleteContact(contact.id)">
-                            <img src="../../assets/delete-icon.svg" alt="Delete icon" width="13" height="17">
-                        </button>
-                    </div>
-                    <div class="card-body" (click)="goToContactDetails(contact.id)">
-                        <div class="card-img" [style.background]="'url(' + contact.image + ')'" alt="Contact image">
-                        </div>
-                        <h5 class="card-title">{{contact.fullName}}</h5>
-                    </div>
-                </div>
+                <app-contact-card [contact]="contact" [page]="'AllContacts'" (contactDeleted)="onContactDeleted($event)"></app-contact-card>
             </div>
         </div>
     </div>
