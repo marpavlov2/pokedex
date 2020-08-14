@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-lg-4 col-xl-3"
-                *ngFor="let contact of contacts | searchContact:contactsService.searchTerm; let i = index">
+                *ngFor="let contact of favoriteContacts | searchContact:contactsService.searchTerm; let i = index">
                 <app-contact-card [contact]="contact" [page]="'MyFavorites'"></app-contact-card>
             </div>
         </div>
