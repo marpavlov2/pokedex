@@ -1,34 +1,33 @@
 .edit-contact-container {
     padding-bottom: 40px;
-    .edit-img-container {
+
+    .add-img-container {
         display: flex;
         justify-content: center;
         padding: 22px 0px;
 
-        .edit-img {
+        .inputWrapper {
+            display: none;
+        }
+
+        .img-placeholder {
             position: relative;
-            display: block;
-            border: 3px solid rgba(187, 196, 195, 0.3);
-            min-height: 156px;
-            width: 100%;
-            max-width: 156px;
+            background-size: cover !important;
+            background-repeat: no-repeat !important;
+            border: 3px solid #eaeded;
             border-radius: 100%;
+            min-height: 186px;
+            width: 186px;
+            max-width: 186px;
+            margin: 20px 0px;
+            padding: 60px 0px;
+            cursor: pointer;
 
             &:hover {
                 .remove-img {
                     background-color: rgba(0, 0, 0, 0.4);
                     opacity: 1;
                 }
-            }
-            img {
-                display: block;
-                border: 3px solid rgba(187, 196, 195, 0.3);
-                min-height: 156px;
-                width: 100%;
-                max-width: 156px;
-                border-radius: 100%;
-                transition: 0.5s ease;
-                backface-visibility: hidden;
             }
 
             .remove-img {
@@ -106,6 +105,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        background: none;
+        outline: none;
+        border: none;
         .icon {
             cursor: pointer;
             display: flex;
@@ -164,13 +166,9 @@
 @media (min-width: 768px) {
     .edit-contact-container {
         padding: 60px 0px;
-        .edit-img-container {
+        .add-img-container {
             padding: 0;
             justify-content: flex-end;
-            img {
-                min-height: 186px;
-                max-width: 186px;
-            }
         }
 
         .edit-navigation {

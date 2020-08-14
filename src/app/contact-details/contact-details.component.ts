@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, Params } from '@angular/router';
+import { Router } from '@angular/router';
 import { Location } from '@angular/common'
 import { ContactsService } from '../contacts.service';
 import { ActivatedRoute } from '@angular/router';
+import { Contact } from '../interfaces/contact';
 
 @Component({
   selector: 'app-contact-details',
@@ -10,31 +11,30 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./contact-details.component.scss']
 })
 export class ContactDetailsComponent implements OnInit {
-  contact: any = {liked: true}
+  contactDetails: any;
 
   constructor(
-    public router: Router, 
+    public router: Router,
     public activatedRoute: ActivatedRoute,
     public contactsService: ContactsService,
     private _location: Location) { }
 
   async ngOnInit() {
     let contactId = this.activatedRoute.snapshot.paramMap.get('contactId');
-    this.contactsService.contactDetails = await this.contactsService.getContact(contactId);
+    this.contactDetails = await this.contactsService.getContact(contactId);
   }
 
-  addContactToFavorites() {}
-
-  goToEditContact() {
-    this.router.navigate(['/edit-contact']);
+  markFavorite(contact: Contact) {
+    contact.liked = !contact.liked;
+    if (contact.liked) {
+      this.contactsService.addContactToFavorites(contact);
+    } else {
+      this.contactsService.removeContactFromFavorites(contact);
+    }
   }
 
   goBack() {
     this._location.back();
-  }
-
-  ngOnDestroy() {
-    this.contactsService.contactDetails = undefined;
   }
 
 }

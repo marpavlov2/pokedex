@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from "rxjs/operators"
+import { Contact } from './interfaces/contact';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,6 @@ export class ContactsService {
   searchTerm: string;
   contacts: Array<any> = [];
   favoriteContacts: Array<any> = [];
-  contactDetails: any;
 
   constructor(
     private firestore: AngularFirestore,
@@ -21,8 +21,8 @@ export class ContactsService {
     public storage: AngularFireStorage
   ) { }
 
-  // GET USER
-  async getContact(contactId: string) {
+
+  async getContact(contactId: string): Promise<Contact> {
     return this.firestore.collection(`contacts`).doc(contactId).get().toPromise()
       .then((doc) => {
         let user = doc.data();
@@ -30,11 +30,11 @@ export class ContactsService {
       })
       .catch(() => {
         this.toast.show(`Adding contact error`);
-        return false;
+        return undefined;
       });
   }
 
-  async addContact(contact: any): Promise<boolean> {
+  async addContact(contact: Contact): Promise<boolean> {
     this.spinner.showSpinner();
     return this.firestore.collection(`contacts`).add(contact)
       .then(async (doc) => {
@@ -51,9 +51,25 @@ export class ContactsService {
       });
   }
 
-  async addContactToFavorites(contact: any) {
+  async updateContact(contact: Contact) {
     return this.firestore.collection(`contacts`).doc(contact.id).update({
-      liked: contact.liked,
+      fullName: contact.fullName,
+      email: contact.email,
+      image: contact.image,
+      numbers: contact.numbers
+    })
+      .then(() => {
+        this.toast.show(`Contact updated`);
+      })
+      .catch(() => {
+        this.toast.show(`Updating contact error`);
+        return false;
+      })
+  }
+
+  async addContactToFavorites(contact: Contact) {
+    return this.firestore.collection(`contacts`).doc(contact.id).update({
+      liked: contact.liked
     })
       .then(() => {
         this.toast.show(`Added to favorites`);
@@ -65,9 +81,9 @@ export class ContactsService {
       });
   }
 
-  async removeContactFromFavorites(contact: any) {
+  async removeContactFromFavorites(contact: Contact) {
     return this.firestore.collection(`contacts`).doc(contact.id).update({
-      liked: contact.liked,
+      liked: contact.liked
     })
       .then(() => {
         this.toast.show(`Removed from favorites`);

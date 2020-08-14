@@ -14,10 +14,16 @@
                         </div>
                     </div>
                     <div class="col-md-4 col-lg-3 col-xl-3">
-                        <div class="edit-img-container">
-                            <div class="edit-img">
-                                <img src="../../assets/woman.jpg" alt="Woman image">
-                                <div class="remove-img"><span>&#10005;</span></div>
+                        <div class="add-img-container">
+                            <div>
+                                <div (click)="fileUploader.click()" class="img-placeholder"
+                                    [style.background]="'url(' + image.value + ')'">
+                                    <div class="remove-img"><span>&#10005;</span></div>
+                                </div>
+                                <div class="inputWrapper">
+                                    <input type="file" #fileUploader [(ngModel)]="newImage"
+                                        (change)="showPreview($event)">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -31,7 +37,7 @@
                                 <img src="../../assets/delete-icon.svg" alt="delete icon" width="13" height="17">
                             </button>
                         </div>
-                        <form [formGroup]="editEmployeeForm" (ngSubmit)="register()">
+                        <form [formGroup]="editContactForm" (ngSubmit)="register()">
                             <div class="form-group">
                                 <label class="person" for="fullName">full name</label>
                                 <input type="text" class="form-control" placeholder="Full name"
@@ -43,82 +49,45 @@
                                 <input type="email" class="form-control" placeholder="Email" formControlName="email">
                                 <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                             </div>
-                            <div class="form-group">
+                            <div formArrayName="numbers" class="form-group">
                                 <label class="numbers" for="numbers">numbers</label>
-                                <div class="row">
+                                <div class="row"
+                                    *ngFor="let contact of editContactForm.get('numbers')['controls']; let i = index"
+                                    [formGroupName]="i">
                                     <div class="col-12 col-sm-6 col-lg-6">
-                                        <input type="email" class="form-control" placeholder="+385 21 546 456"
-                                            formControlName="numbers">
+                                        <input type="tel" class="form-control" placeholder="Number"
+                                            formControlName="number">
                                     </div>
                                     <div class="col-9 col-sm-4 col-lg-5">
-                                        <input type="email" class="form-control" placeholder="Home"
-                                            formControlName="numbers">
+                                        <input type="text" class="form-control" placeholder="Cell"
+                                            formControlName="cell">
                                     </div>
                                     <div class="col-3 col-sm-2 col-lg-1">
-                                        <div class="remove-add-container">
+                                        <button class="remove-add-container" (click)="removeOrClearNumbers(i)">
                                             <div class="icon"><span>&#10005;</span></div>
-                                        </div>
+                                        </button>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 col-sm-6 col-lg-6">
-                                        <input type="email" class="form-control" placeholder="+385 21 546 456"
-                                            formControlName="numbers">
-                                    </div>
-                                    <div class="col-9 col-sm-4 col-lg-5">
-                                        <input type="email" class="form-control" placeholder="Work"
-                                            formControlName="numbers">
-                                    </div>
-                                    <div class="col-3 col-sm-2 col-lg-1">
-                                        <div class="remove-add-container">
-                                            <div class="icon"><span>&#10005;</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 col-sm-6 col-lg-6">
-                                        <input type="email" class="form-control" placeholder="+385 21 546 456"
-                                            formControlName="numbers">
-                                    </div>
-                                    <div class="col-9 col-sm-4 col-lg-5">
-                                        <input type="email" class="form-control" placeholder="Cell"
-                                            formControlName="numbers">
-                                    </div>
-                                    <div class="col-3 col-sm-2 col-lg-1">
-                                        <div class="remove-add-container">
-                                            <div class="icon"><span>&#10005;</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 col-sm-6 col-lg-6">
-                                        <input type="email" class="form-control" placeholder="+385 21 546 456"
-                                            formControlName="numbers">
-                                    </div>
-                                    <div class="col-9 col-sm-4 col-lg-5">
-                                        <input type="email" class="form-control" placeholder="Husband"
-                                            formControlName="numbers">
-                                    </div>
-                                    <div class="col-3 col-sm-2 col-lg-1">
-                                        <div class="remove-add-container">
-                                            <div class="icon"><span>&#10005;</span></div>
-                                        </div>
+                                    <div class="col-sm-12">
+                                        <small class="form-text text-muted"
+                                            *ngIf="numbers.controls[i].get('number').errors?.required && (numbers.controls[i].get('number').dirty || numbers.controls[i].get('number').touched)">Please
+                                            enter a number.</small>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <div class="remove-add-container add">
+                                        <button class="remove-add-container add" (click)="addNumber()">
                                             <div class="icon"><span>&#10005;</span></div>
                                             <span>Add number</span>
-                                        </div>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-actions">
-                                <button type="submit" class="btn button-primary gray">Cancel</button>
-                                <button type="submit" class="btn button-primary blue">Save</button>
+                                <button type="submit" (click)="goBack()" class="btn button-primary gray">Cancel</button>
+                                <button type="submit" (click)="updateContact()"
+                                    class="btn button-primary blue">Save</button>
                             </div>
                         </form>
                     </div>

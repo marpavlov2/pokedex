@@ -1,13 +1,14 @@
 <div class="my-favorites-container">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-lg-4 col-xl-3" *ngFor="let contact of contactsService.favoriteContacts | searchContact:contactsService.searchTerm; let i = index">
+            <div class="col-sm-6 col-lg-4 col-xl-3"
+                *ngFor="let contact of favoriteContacts | searchContact:contactsService.searchTerm; let i = index">
                 <div class="card">
                     <div class="card-actions">
-                        <button class="like">
-                            <div class="heart-icon"  [class.liked]="contact.liked"></div>
+                        <button class="like" (click)="markFavorite(contact)">
+                            <div class="heart-icon" [class.liked]="contact.liked"></div>
                         </button>
-                        <button class="edit" routerLink="/edit-contact">
+                        <button class="edit" [routerLink]="'/edit-contact/' + contact.id">
                             <img src="../../assets/edit-icon.svg" alt="Edit icon" width="16" height="16">
                         </button>
                         <button class="delete">
@@ -15,7 +16,8 @@
                         </button>
                     </div>
                     <div class="card-body" (click)="goToContactDetails(contact.id)">
-                        <div class="card-img" [style.background]="'url(' + contact.image + ')'" alt="Contact image"></div>
+                        <div class="card-img" [style.background]="'url(' + contact.image + ')'" alt="Contact image">
+                        </div>
                         <h5 class="card-title">{{contact.fullName}}</h5>
                     </div>
                 </div>

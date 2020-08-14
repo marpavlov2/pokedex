@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContactsService } from '../contacts.service';
+import { Contact } from '../interfaces/contact';
 
 @Component({
   selector: 'app-my-favorites',
@@ -8,13 +9,26 @@ import { ContactsService } from '../contacts.service';
   styleUrls: ['./my-favorites.component.scss']
 })
 export class MyFavoritesComponent implements OnInit {
+  favoriteContacts: Array<Contact> = [];
 
   constructor(
     public router: Router,
     public contactsService: ContactsService) { }
 
   async ngOnInit() {
-    this.contactsService.favoriteContacts = await this.contactsService.getFavoriteContacts();
+    this.favoriteContacts = await this.contactsService.getFavoriteContacts();
+  }
+
+  markFavorite(contact: Contact) {
+    contact.liked = !contact.liked;
+    if (contact.liked) {
+      this.contactsService.addContactToFavorites(contact);
+    } else {
+      this.contactsService.removeContactFromFavorites(contact)
+        .then(() => {
+          this.favoriteContacts = this.favoriteContacts.filter((favoriteContact: Contact) => favoriteContact.id !== contact.id);
+        });
+    }
   }
 
   goToContactDetails(contactId: string) {
@@ -22,7 +36,6 @@ export class MyFavoritesComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.contactsService.favoriteContacts = [];
     this.contactsService.searchTerm = undefined;
   }
 

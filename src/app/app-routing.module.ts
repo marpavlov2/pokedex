@@ -10,7 +10,7 @@ import { ContactDetailsComponent } from './contact-details/contact-details.compo
 const routes: Routes = [
   { path: '', component: AllContactsComponent},
   { path: 'my-favorites', component: MyFavoritesComponent},
-  { path: 'edit-contact', component: EditContactComponent},
+  { path: 'edit-contact/:contactId', component: EditContactComponent},
   { path: 'add-contact', component: AddContactComponent},
   { path: 'contact-details/:contactId', component: ContactDetailsComponent}
 ];
