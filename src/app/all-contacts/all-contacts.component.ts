@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContactsService } from '../contacts.service';
 import { Contact } from '../interfaces/contact';
-import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-all-contacts',
@@ -11,7 +10,6 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class AllContactsComponent implements OnInit {
   contacts: Array<Contact> = [];
-  modalRef: BsModalRef;
 
   constructor(
     public router: Router,
@@ -21,13 +19,12 @@ export class AllContactsComponent implements OnInit {
     this.contacts = await this.contactsService.getContacts();
   }
 
-  ngOnDestroy() {
-    this.contactsService.searchTerm = undefined;
+  onRemoveContactFromList(contactId: string) {
+    this.contacts = this.contacts.filter(contact => contact.id != contactId);
   }
 
-  onContactDeleted(contactId: string) {
-    console.log(contactId);
-    this.contacts = this.contacts.filter(contact => contact.id != contactId);
+  ngOnDestroy() {
+    this.contactsService.searchTerm = undefined;
   }
 
 }

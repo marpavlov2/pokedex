@@ -42,12 +42,20 @@
                                 <label class="person" for="fullName">full name</label>
                                 <input type="text" class="form-control" placeholder="Full name"
                                     formControlName="fullName">
-                                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                <small class="form-text text-muted"
+                                    *ngIf="fullName.errors?.required && (fullName.dirty || fullName.touched)">Please
+                                    enter your full name.</small>
                             </div>
                             <div class="form-group">
                                 <label class="email" for="email">email</label>
                                 <input type="email" class="form-control" placeholder="Email" formControlName="email">
-                                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                <small class="form-text text-muted"
+                                    *ngIf="email.errors?.required && (email.dirty || email.touched)">
+                                    Please enter your email.
+                                </small>
+                                <small class="form-text text-muted" *ngIf="email.errors?.email">
+                                    Please enter your email in correct format.
+                                </small>
                             </div>
                             <div formArrayName="numbers" class="form-group">
                                 <label class="numbers" for="numbers">numbers</label>
@@ -86,8 +94,8 @@
                             </div>
                             <div class="form-actions">
                                 <button type="button" (click)="goBack()" class="btn button-primary gray">Cancel</button>
-                                <button type="button" (click)="updateContact()"
-                                    class="btn button-primary blue" [disabled]="!editContactForm.valid">Save</button>
+                                <button type="button" (click)="updateContact()" class="btn button-primary blue"
+                                    [disabled]="!editContactForm.valid">Save</button>
                             </div>
                         </form>
                     </div>

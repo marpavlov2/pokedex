@@ -11,7 +11,7 @@
             </div>
             <div class="col-sm-6 col-lg-4 col-xl-3"
                 *ngFor="let contact of contacts | searchContact:contactsService.searchTerm; let i = index">
-                <app-contact-card [contact]="contact" [page]="'AllContacts'" (contactDeleted)="onContactDeleted($event)"></app-contact-card>
+                <app-contact-card [contact]="contact" [page]="'AllContacts'" (contactRemoved)="onRemoveContactFromList($event)"></app-contact-card>
             </div>
         </div>
     </div>

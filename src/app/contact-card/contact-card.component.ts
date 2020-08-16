@@ -15,7 +15,7 @@ export class ContactCardComponent implements OnInit {
   contact: Contact;
   @Input('page')
   page: string;
-  @Output() contactDeleted = new EventEmitter<string>();
+  @Output() contactRemoved = new EventEmitter<string>();
   contacts: Array<Contact> = [];
   modalRef: BsModalRef;
 
@@ -36,7 +36,13 @@ export class ContactCardComponent implements OnInit {
     if (contact.liked) {
       this.contactsService.addContactToFavorites(contact);
     } else {
-      this.contactsService.removeContactFromFavorites(contact);
+      this.contactsService.removeContactFromFavorites(contact)
+      .then(() => {
+        // Removes card from list only if page is MyFavorites
+        if (this.page === 'MyFavorites') {
+          this.contactRemoved.emit(this.contact.id);
+        }
+      });
     }
   }
 
@@ -46,11 +52,7 @@ export class ContactCardComponent implements OnInit {
       if (result) {
         this.contactsService.deleteContact(contactId)
         .then(() => {
-          console.log(this.page)
-          if (this.page === 'AllContacts') {
-            console.log(this.page)
-            this.contactDeleted.emit(this.contact.id);
-          }
+          this.contactRemoved.emit(this.contact.id);
         });
       }
     })

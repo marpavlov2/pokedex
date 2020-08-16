@@ -31,7 +31,7 @@ export class AddContactComponent implements OnInit {
   ngOnInit() {
     this.contactForm = this.fb.group({
       fullName: ['', [Validators.required]],
-      email: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       numbers: this.fb.array([this.createNumbersFormGroup()], [Validators.required]),
       liked: false,
       image: ['']

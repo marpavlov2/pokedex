@@ -40,7 +40,7 @@ export class EditContactComponent implements OnInit {
     this.editContactForm = this.fb.group({
       id: [''],
       fullName: ['', [Validators.required]],
-      email: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       liked: false,
       image: [''],
       numbers: this.fb.array([], [Validators.required]),
