@@ -51,7 +51,7 @@
                                 <div class="contacts-container">
                                     <div class="contact" *ngFor="let contact of contactDetails.numbers">
                                         <h5>{{contact.cell}}</h5>
-                                        <a href="tel:+38521546456">+385 21 546 456</a>
+                                        <a href="tel:{{contact.number}}">{{contact.number}}</a>
                                     </div>
                                 </div>
                             </div>
