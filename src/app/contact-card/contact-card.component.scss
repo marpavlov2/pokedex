@@ -7,16 +7,9 @@
 
     &:hover {
         border: 1px solid #2da1ad;
-
-        .card-actions {
-            .delete, .edit {
-                display: block;
-            }
-        }
     }
 
     .card-actions {
-        height: 30px;
         min-width: 120px;
         display: flex;
         justify-content: space-between;
@@ -36,10 +29,6 @@
             &:hover {
                 cursor: pointer;
             }
-        }
-
-        .delete, .edit {
-            display: none;
         }
     }
 
@@ -100,10 +89,23 @@
         flex-direction: column;
         margin-bottom: 30px;
 
+        &:hover {
+            border: 1px solid #2da1ad;
+    
+            .card-actions {
+                .delete, .edit {
+                    display: block;
+                }
+            }
+        }
+
         .card-actions {
+            height: 30px;
             padding-top: 15px;
             padding-left: unset;
-
+            .delete, .edit {
+                display: none;
+            }
             .like {
                 margin-right: auto;
             }
