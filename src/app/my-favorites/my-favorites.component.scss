@@ -1,3 +1,5 @@
+@import '../../colors.scss';
+
 .card {
     display: flex;
     flex-direction: row-reverse;
@@ -6,7 +8,7 @@
     padding: 0px 13px;
 
     &:hover {
-        border: 1px solid #2da1ad;
+        border: 1px solid $PrimaryColor;
     }
 
     .card-actions {
@@ -49,11 +51,10 @@
         }
 
         .card-title {
-            color: #bbc4c3;
+            color: $SecondaryColor;
             font-family: Lato;
             font-size: 14px;
             font-weight: bold;
-            letter-spacing: 0;
             line-height: 17px;
             text-align: center;
             width: 100%;
@@ -75,10 +76,6 @@
 
             .like {
                 margin-right: auto;
-            }
-
-            .edit {
-                margin-right: 25px;
             }
         }
 

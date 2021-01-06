@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ContactsService } from '../contacts.service';
+import { PokemonsService } from '../pokemons.service';
 
 @Component({
   selector: 'app-header',
@@ -11,9 +11,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     public router: Router,
-    public contactService: ContactsService) { }
+    public pokemonsService: PokemonsService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

@@ -1,0 +1,170 @@
+@import '../../colors.scss';
+
+.pokemon-details-container {
+    padding-bottom: 40px;
+
+    .pokemon-header-container {
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid $PrimaryColor;
+        margin-bottom: 20px;
+
+        .img-container {
+            display: flex;
+            justify-content: flex-start;
+            padding: 22px 0px;
+
+            .img {
+                border: 3px solid #eaeded;
+                background-size: cover !important;
+                background-repeat: no-repeat !important;
+                position: relative;
+                display: block;
+                height: 56px;
+                width: 56px;
+                border-radius: 100%;
+
+                &:hover {
+                    .remove-img {
+                        background-color: rgba(0, 0, 0, 0.4);
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .pokemon-name {
+            margin-bottom: 0px;
+            margin-left: 25px;
+            color: #adb8b6;
+            font-size: 21px;
+            font-weight: bold;
+            line-height: 28px;
+        }
+    }
+
+    .edit-navigation {
+        display: none;
+        justify-content: space-between;
+
+        button {
+            background: none;
+            height: unset;
+            border: none;
+            line-height: 12px;
+            padding: 0px;
+
+            &:hover {
+                cursor: pointer;
+                span {
+                    color: $PrimaryColor;
+                }
+            }
+        }
+
+        &.mobile {
+            display: flex;
+            border-bottom: 1px solid $SecondaryColor;
+            padding: 15px 0px;
+
+            .back {
+                margin-right: auto;
+            }
+
+            .like {
+                margin-right: 25px;
+            }
+        }
+    }
+
+    .stats-container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    h3 {
+        color: $PrimaryColor;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: bold;
+    }
+}
+
+@media (min-width: 768px) {
+    .pokemon-details-container {
+        padding: 60px 0px;
+
+        .pokemon-header-container {
+            justify-content: flex-end;
+            border-bottom: none;
+            .img-container {
+                height: 186px;
+                width: 186px;
+                padding: 0;
+                justify-content: flex-end;
+
+                .img {
+                    height: 186px;
+                    width: 186px;
+                }
+            }
+            .pokemon-name {
+                display: none;
+            }
+        }
+
+        .edit-navigation {
+            padding-top: 60px;
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 22px;
+            border-bottom: 2px solid $PrimaryColor;
+            margin-bottom: 30px;
+
+            .pokemon-name-container {
+                display: flex;
+                align-items: center;
+
+                .back {
+                    margin-right: 20px;
+                }
+            }
+
+            .actions-container {
+                display: flex;
+                align-items: center;
+                button {
+                    margin-left: 45px;
+                }
+            }
+
+            .pokemon-name {
+                text-transform: capitalize;
+                color:$SecondaryColor;
+                font-size: 28px;
+                font-weight: bold;
+                line-height: 34px;
+                text-align: center;
+            }
+
+            button {
+                span {
+                    color: $SecondaryColor;
+                    font-size: 14px;
+                    line-height: 17px;
+                    margin-right: 15px;
+                }
+            }
+
+            &.mobile {
+                display: none;
+            }
+        }
+
+        h3 {
+            font-size: 18px;
+            line-height: 22px;
+        }
+    }
+}

@@ -1,6 +1,7 @@
+@import '../../colors.scss';
+
 .header-container {
     height: 53px;
-    background: linear-gradient(182.65deg, #78c9ce 0%, #2496a2 99.98%, #2496a2 100%);
     border-bottom: 7px solid rgba($color: #ffff, $alpha: 0.3);
 
     .header {
@@ -17,7 +18,7 @@
         justify-content: center;
         align-items: center;
         padding: 16px 0px;
-        border-bottom: 2px solid #2da1ad;
+        border-bottom: 2px solid $PrimaryColor;
         .navigation-items {
             padding: 0;
             margin: 0;
@@ -26,24 +27,23 @@
             li {
                 &:not(:last-child):after {
                     content: "|";
-                    color: #bbc4c3;
+                    color: $SecondaryColor;
                 }
 
                 a {
                     font-size: 14px;
                     line-height: 17px;
                     font-weight: bold;
-                    letter-spacing: 0;
-                    color: #bbc4c3;
+                    color: $SecondaryColor;
                     padding: 0px 28px;
                     text-decoration: none;
 
                     &:hover {
-                        color: #2da1ad;
+                        color: $PrimaryColor;
                     }
 
                     &.is-active {
-                        color: #2da1ad;
+                        color: $PrimaryColor;
                     }
                 }
             }

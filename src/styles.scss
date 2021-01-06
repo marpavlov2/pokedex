@@ -1,21 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
-h tml,
+// CSS could also be written with BEM methodology
+@import './colors.scss';
+
+html,
 body {
     height: 100%;
 }
 body {
     margin: 0;
-    font-family: "Lato" !important;
-    line-height: unset !important;
     letter-spacing: 0;
+    line-height: unset;
 }
-
-// ngx spinner
-.loading {
-    color: #fff;
-}
-
-// forms, buttons and modal styles
 
 button {
     cursor: pointer;
@@ -25,80 +20,17 @@ button {
     }
 }
 
-.btn:hover {
-    color: #fff !important;
-}
-
-button:disabled,
-button[disabled] {
-    opacity: 0.5 !important;
-}
-
-.form-actions,
-.modal-footer {
-    display: flex;
-    justify-content: space-between;
-
-    .button-primary {
-        border-radius: 28.5px;
-        color: #ffffff;
-        font-size: 14px;
-        font-weight: bold;
-        line-height: 17px;
-        text-align: center;
-        padding: 12px 48px;
-        &.gray {
-            background-color: #bbc4c3;
-        }
-        &.blue {
-            background-color: #2da1ad;
-        }
-    }
+// ngx spinner
+.loading {
+    color: #fff;
 }
 
 input {
-    caret-color: #2da1ad;
-}
-
-.form-control:focus {
-    border-color: inherit;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
-
-.modal-content {
-    max-width: 480px;
-}
-
-.modal-title {
-    color: #bbc4c3;
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 19px;
-}
-
-.modal-body {
-    text-align: center;
-    color: #bbc4c3;
-    font-size: 16px;
-    letter-spacing: 0;
-    line-height: 28px;
-    text-align: center;
-    padding: 30px 10px 40px !important;
-}
-
-.modal-footer {
-    justify-content: space-between !important;
-    flex-direction: column;
-    border: none !important;
-
-    button {
-        margin-bottom: 15px;
-    }
+    caret-color: $PrimaryColor;
 }
 
 .heart-icon {
-    background-color: #bbc4c3;
+    background-color: #d8262c;
     -webkit-mask: url("./assets/heart-icon.svg") no-repeat center;
     mask: url("./assets/heart-icon.svg") no-repeat center;
     height: 14px;
@@ -107,22 +39,5 @@ input {
     &.liked {
         -webkit-mask: url("./assets/heart-icon-fill.svg") no-repeat center;
         mask: url("./assets/heart-icon-fill.svg") no-repeat center;
-    }
-}
-
-@media (min-width: 768px) {
-    .form-actions,
-    .modal-footer {
-        .button-primary {
-            padding: 12px 58px;
-        }
-    }
-
-    .modal-footer {
-        flex-direction: row;
-        padding-bottom: 30px !important;
-        button {
-            margin-bottom: unset;
-        }
     }
 }

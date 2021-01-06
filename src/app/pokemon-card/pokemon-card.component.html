@@ -1,0 +1,12 @@
+<div class="card">
+    <div class="card-actions">
+        <button class="like" (click)="markFavorite(pokemon)">
+            <div class="heart-icon" [class.liked]="pokemon.liked"></div>
+        </button>
+    </div>
+    <div class="card-body" (click)="goToPokemontDetails()">
+        <div class="card-img" [style.background]="'url(' + pokemon.sprites.frontDefault + ')'" alt="Pokemon image">
+        </div>
+        <h5 class="card-title">{{pokemon.name}}</h5>
+    </div>
+</div>

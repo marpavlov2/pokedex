@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-lg-4 col-xl-3"
-                *ngFor="let contact of favoriteContacts | searchContact:contactsService.searchTerm; let i = index">
-                <app-contact-card [contact]="contact" [page]="'MyFavorites'" (contactRemoved)="onRemoveContactFromList($event)"></app-contact-card>
+                *ngFor="let pokemon of favoritePokemons | searchPokemon:pokemonsService.searchTerm; let i = index">
+                <app-pokemon-card [pokemon]="pokemon" [page]="'MyFavorites'" (pokemonRemoved)="onRemovePokemonFromList($event)"></app-pokemon-card>
             </div>
         </div>
     </div>
