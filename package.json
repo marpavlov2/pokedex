@@ -20,7 +20,6 @@
     "@angular/platform-browser": "~8.2.4",
     "@angular/platform-browser-dynamic": "~8.2.4",
     "@angular/router": "~8.2.4",
-    "firebase": "^7.17.2",
     "ngx-spinner": "^8.0.3",
     "ngx-toastr": "^10.2.0",
     "rxjs": "~6.4.0",
